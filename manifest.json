@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Meta AI Tools",
+  "version": "1.0.0",
+  "description": "Tiện ích hỗ trợ quét, tải video và chạy prompt hàng loạt trên Meta AI.",
+  "permissions": [
+    "activeTab",
+    "downloads",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.meta.ai/*",
+    "https://meta.ai/*",
+    "https://*.fbcdn.net/*",
+    "https://*.fbsbx.com/*",
+    "https://*.cdninstagram.com/*",
+    "https://labs.google/*",
+    "https://*.google.com/*",
+    "https://*.googleusercontent.com/*",
+    "https://flow-content.google/*",
+    "https://*.workers.dev/*"
+  ],
+  "action": {
+    "default_title": "Meta AI Tools"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.meta.ai/*",
+        "https://meta.ai/*",
+        "https://labs.google/*",
+        "https://*.google.com/*"
+      ],
+      "js": [
+        "protection.js",
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

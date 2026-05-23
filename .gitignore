@@ -1,0 +1,5 @@
+# Build output
+/dist/
+
+# Wrangler local state
+.wrangler/
